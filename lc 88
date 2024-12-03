@@ -1,20 +1,26 @@
-void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
-    if(n == 0)return;
-    int len1 = nums1Size;
-    int end_idx = len1-1;
-    while(n > 0 && m > 0){
-        if(nums2[n-1] >= nums1[m-1]){
-        nums1[end_idx] = nums2[n-1];
-        n--;
-        }else{
-            nums1[end_idx] = nums1[m-1];
-            m--;
-        }
-        end_idx--;
+void mergeAndSort(int* a, int m, int* b, int n, int* c)
+{
+    int i, j, k;
+    for (i = 0; i < m; i++)
+    {
+        c[i] = a[i];
     }
-    while (n > 0) {
-        nums1[end_idx] = nums2[n-1];
-        n--;
-        end_idx--;
+    for (j = 0; j < n; j++)
+    {
+        c[m + j] = b[j];
+    }
+    int l = m + n;
+    int temp;
+    for (i = 0; i < l; i++)
+     {
+        for (j = i+1; j < l; j++) 
+         {
+            if (c[i] > c[j])
+            {
+                temp = c[i];
+                c[i] = c[j];
+                c[j] = temp;
+            }
+        }
     }
 }

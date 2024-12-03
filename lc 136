@@ -20,9 +20,5 @@ long long int singleNumber(int* nums, int numsSize)
            k=nums[i];
         }
        }
-    }
-   
-        printf("%d",k);
-    
-    return 0;
+     }
 }
